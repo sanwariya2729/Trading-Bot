@@ -1,0 +1,8 @@
+[2025-03-12 10:15:55.242] [system_logger] [info] [Auth] performing authentication
+[2025-03-12 10:15:56.145] [system_logger] [info] [Auth] HTTP response code: 200
+[2025-03-12 10:15:56.147] [system_logger] [info] RestClient initialized.
+[2025-03-12 10:15:56.148] [system_logger] [info]  [Websocket Client] Starting WebSocket client.
+[2025-03-12 10:15:57.171] [system_logger] [info] [Websocket Client] Connected to Deribit WebSocket.
+[2025-03-12 10:17:50.472] [system_logger] [info] [Websocket Client] Subscribed to market data for 1 instrument(s).
+[2025-03-12 10:18:45.631] [system_logger] [info] [Websocket Client] WebSocket client stopped.
+[2025-03-12 10:18:45.632] [system_logger] [info] RestClient shutting down.
