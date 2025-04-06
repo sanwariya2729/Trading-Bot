@@ -56,7 +56,7 @@ Trade::Trade(RestClient* restClient, WebsocketClient* wsClient)
 }
 
 Trade::~Trade() {
-    wsClient.stop()
+    wsClient->stop();
 }
 
 // ------------------ Order Management Functions ------------------ //
@@ -142,6 +142,7 @@ void Trade::getOrderBook(const std::string& instrument) {
 
 void Trade::viewCurrentPositions() {
     // Request positions via WebSocket (assuming currency is BTC for this example).
+    //hardcoded it.. could be modified.
     wsClient->requestCurrentPositions("BTC");
     spdlog::info("Requested current positions for BTC");
 }

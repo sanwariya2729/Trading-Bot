@@ -3,7 +3,8 @@
 #include <curl/curl.h>
 #include <thread>
 #include <chrono>
-#include <nlohmann/json.hpp>  
+#include <nlohmann/json.hpp>
+
 using json = nlohmann::json;
 
 // Callback for libcurl to write response data into a std::string.
@@ -99,6 +100,7 @@ bool Authorization::performAuthentication() {
 }
 
 bool Authorization::performTokenRefresh() {
+
     std::string url = "https://test.deribit.com/api/v2/public/auth";
     // Build the JSON payload for refresh_token grant.
     json payload = {

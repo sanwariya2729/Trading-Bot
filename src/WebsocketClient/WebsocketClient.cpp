@@ -107,6 +107,7 @@ void WebsocketClient::stop() {
 }
 
 void WebsocketClient::websocketLoop() {
+
     websocketpp::lib::error_code ec;
     auto con = wsClient.get_connection("wss://test.deribit.com/ws/api/v2", ec);
     if (ec) {
@@ -250,7 +251,7 @@ void WebsocketClient::wsAuthenticate() {
         }}
     };
     sendMessage(authMessage);
-    std::cout << "Sent WebSocket authentication message." << std::endl;
+   
 }
 
 

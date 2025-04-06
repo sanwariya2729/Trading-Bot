@@ -6,6 +6,8 @@
 #include <ctime>
 #include "Logger.h"
 
+
+
 class Authorization {
 public:
     Authorization(const std::string& clientId, const std::string& clientSecret);
@@ -26,7 +28,7 @@ private:
     std::string refreshToken;
     time_t expiryTime; // Unix timestamp when token expires
     std::mutex tokenMutex;
-
+ 
     // Makes a POST request to Deribit and returns the response as a string.
     std::string httpPost(const std::string& url, const std::string& jsonPayload);
     

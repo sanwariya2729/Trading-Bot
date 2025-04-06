@@ -11,6 +11,7 @@ std::shared_ptr<spdlog::logger> dump;
 
 
 void initLogger(){
+//initialise all the loggers.
 	try{
 		systemLogger=spdlog::get("system_logger");
 		if(!systemLogger){

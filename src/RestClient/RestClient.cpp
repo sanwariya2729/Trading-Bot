@@ -5,6 +5,7 @@
 #include <nlohmann/json.hpp>
 #include <spdlog/sinks/basic_file_sink.h>
 
+
 using json = nlohmann::json;
 
 // Callback function for libcurl to collect response data.
@@ -19,7 +20,6 @@ RestClient::RestClient(Authorization* auth)
     : auth(auth)
 {
     curl_global_init(CURL_GLOBAL_ALL);
-    // Initialize system logger
     initLogger();
     systemLogger->info("RestClient initialized.");
 }
@@ -61,9 +61,13 @@ std::string RestClient::placeOrder(const std::string& instrument, double amount,
                                    const std::string& side, const std::string& orderType, double price,
                                    const std::string& expiryDate , double strikePrice , 
                                    const std::string& optionType ) {
+                            
     
     std::string url = (side == "buy") ? "https://test.deribit.com/api/v2/private/buy" 
                                       : "https://test.deribit.com/api/v2/private/sell";
+    if(url.empty()){
+    	std::cerr<<"ENV variables not loaded properly"<<std::endl;
+    }
 
   
     json payload = {
@@ -124,7 +128,11 @@ std::string RestClient::placeOrder(const std::string& instrument, double amount,
 
 
 std::string RestClient::cancelOrder(const std::string& orderId) {
+	
     std::string url = "https://test.deribit.com/api/v2/private/cancel";
+    if(url.empty()){
+    	std::cerr<<"ENV variables not loaded properly"<<std::endl;
+    }
     json payload = {
         {"jsonrpc", "2.0"},
         {"id", 1},
@@ -157,6 +165,7 @@ std::string RestClient::cancelOrder(const std::string& orderId) {
 }
 
 std::string RestClient::modifyOrder(const std::string& orderId, double newAmount, double newPrice) {
+
     std::string url = "https://test.deribit.com/api/v2/private/edit";
     json payload = {
         {"jsonrpc", "2.0"},
