@@ -1,6 +1,6 @@
 
 
-# BASIC TRADE EXECUTION SYSTEM
+# CLI TRADE EXECUTION SYSTEM
 
 ## PROJECT DESCRIPTION:-A C++ trading system that supports order placement, cancellation, modification, and live market data streaming over WebSockets.
 
